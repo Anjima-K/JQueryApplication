@@ -1,0 +1,61 @@
+:root {
+    --theme-color: #ff3f6c;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+}
+
+i {
+    color: var(--theme-color);
+}
+
+s {
+    color: #ccc;
+}
+
+.navbar-brand {
+    color: var(--theme-color);
+}
+
+.nav-link:hover {
+    color: var(--theme-color);
+}
+
+.nav-link i {
+    font-size: 25px;
+}
+.my-image {
+    width: 100%;
+}
+
+.dress-box {
+    margin: 25px;
+}
+
+.dress-box:hover {
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
+}
+
+.price {
+    font-weight: bold;
+    color: var(--theme-color);
+}
+
+#footer {
+    font-size: 13px;
+}
+
+#footer a {
+    text-decoration: none;
+    color: var(--bs-body-color);
+}
+
+#footer h3,h4 {
+    color: var(--theme-color);
+    font-size: 16px;
+}
+
+.footer-links ul {
+    padding: 0;
+}
