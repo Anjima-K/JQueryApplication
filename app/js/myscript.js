@@ -1,5 +1,5 @@
 function getDresses() {
-    let url = 'http://192.168.29.240:5000/dresses';
+    let url = 'http://127.0.0.1:8080/dresses';
 
     $.get(url, function (data, status) {
         if (status == "success") {
@@ -13,32 +13,38 @@ function showDresses(data) {
 
     for (const dress of data) {
         content += `<div class="col-md-6 col-lg-3">
-        <div class="rounded dress-box border">
-            <img src="img/${dress.image}" class="rounded-top mb-3 my-image" alt="...">
-            <div class="p-3 dress-content">
-                <div class="row">
-                    <div class="col-8">
-                        <h5>${dress.brand}</h5>
+            <div class="rounded dress-box border">
+                <img src="img/${dress.image}" class="rounded-top mb-3 my-image" alt="...">
+                <div class="p-3 dress-content">
+                    <div class="row">
+                        <div class="col-8">
+                            <h5>${dress.brand}</h5>
+                        </div>
+                        <div class="col-2">
+                            <i class="fa-regular fa-heart"></i>
+                        </div>
+                        <div class="col-2">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </div>
                     </div>
-                    <div class="col-2">
-                        <i class="fa-regular fa-heart"></i>
-                    </div>
-                    <div class="col-2">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                    </div>
+                    <p>${dress.name}</p>
+                    <p class="price">₹${dress.current_price} <s>MRP ${dress.actual_price}</s></p>
                 </div>
-                <p>${dress.name}</p>
-                <p class="price">₹${dress.current_price} <s>MRP ${dress.actual_price}</s></p>
             </div>
-        </div>
-    </div>`;
+        </div>`;
     }
 
-    document.getElementById("dress-row").innerHTML = content;
+    $("#dress-row").html(content);
 
     $(".fa-heart").click(function () {
         $(this).toggleClass("fa-regular fa-solid");
     });
 }
 
-getDresses();
+$(document).ready(function () {
+    let page = $("#page").val();
+    if (page == "home") {
+        console.log("Home page");
+        getDresses();
+    }
+});
